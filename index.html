@@ -41,7 +41,7 @@
       <div class="title-wrapper">
         <h1>We serve luxury brands</h1>
       </div>
-      <div class="content-wrapper">
+      <!-- <div class="content-wrapper">
         <div class="contents">
           <div class="content-left">
             <p>Luxury Brands &amp; High-Net-Worth Audiences</p>
@@ -54,7 +54,7 @@
             </p>
           </div>
         </div>
-      </div>
+      </div> -->
       <div class="scrolldown-wrapper">
         <div class="scrolldown-img">
           <img
@@ -75,14 +75,7 @@
         ></iframe>
       </div>
     </div>
-    <div class="test">
-      <div>asdasdasdasdasdasdasd</div>
-      <div>asdasdasdasdasdasdasd</div>
-      <div>asdasdasdasdasdasdasd</div>
-      <div>asdasdasdasdasdasdasd</div>
-      <div>asdasdasdasdasdasdasd</div>
-      <div>asdasdasdasdasdasdasd</div>
-    </div>
+    <div class="test"></div>
   </body>
   <script>
     const element = document.querySelector(".main-nav");
@@ -99,9 +92,25 @@
       logo.classList.add("animate-logo");
       if (currentScrollPosition === 0) {
         element.style.background = "transparent";
-        logoSvg.style = "fill:white";
       }
-    }, "8200");
+      logoSvg.style = "fill:white";
+    }, "7690");
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const videoWrapper = document.querySelector(".wrapper");
+      setTimeout(() => {
+        videoWrapper.classList.add("hero-anim-1");
+        console.log("ANIMATION 1");
+        setTimeout(() => {
+          videoWrapper.classList.add("hero-anim-2");
+          console.log("ANIMATION 2");
+          setTimeout(() => {
+            videoWrapper.classList.add("hero-anim-3");
+            console.log("ANIMATION 3");
+          }, "3450");
+        }, "3450");
+      }, "100");
+    });
 
     window.addEventListener("scroll", function () {
       currentScrollPosition = window.pageYOffset;
