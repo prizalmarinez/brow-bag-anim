@@ -4,13 +4,25 @@
 
 html,
 body {
-  /* background-color: rgb(182, 182, 249); */
+  background-color: rgb(182, 182, 249);
   margin: 0px;
   padding: 0px;
 }
 
 h1 {
   margin: 20px 0;
+}
+
+iframe {
+  overflow: hidden;
+  height: 56.25vw;
+  left: 50%;
+  min-height: 100vh;
+  min-width: 177.77vh;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
 }
 
 /* ! NAVIGATION */
@@ -51,29 +63,6 @@ h1 {
   transform: translate(0, -50%);
 }
 
-.center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.original {
-  position: static;
-  transform: none;
-}
-
-n-nav .menu .icon {
-  background: none;
-  border: none;
-  /* bottom: 0; */
-  /* margin: auto 0; */
-  padding: 0;
-  /* width: 24px; */
-  height: 40px;
-  width: 40px;
-}
-
 .test {
   background: white;
   position: relative;
@@ -82,7 +71,7 @@ n-nav .menu .icon {
   width: 100%;
 }
 
-.wrapper {
+.js-wrapper {
   z-index: 1;
   position: relative;
   height: 100vh;
@@ -91,6 +80,7 @@ n-nav .menu .icon {
 }
 
 .video-wrapper {
+  background-color: gray;
   overflow: hidden;
   width: 100%;
   height: 100%;
@@ -99,50 +89,51 @@ n-nav .menu .icon {
   top: 0;
   left: 56px;
   width: calc(100% - 112px);
-  /* transform: ; */
-  /* transition: all 1s ease; */
-  animation: hero-video-anim 7s ease-out forwards 1.8s;
+  transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.hero-anim-1 {
+/* !VIDEO WRAPPER ANIM */
+.js-bg-anim-1 .video-wrapper {
   opacity: 1;
   top: 200px;
-  left: 56px;
-  width: calc(100% - 112px);
 }
 
-/* .video-wrapper:before {
+.js-bg-anim-2 .video-wrapper {
+  top: 80px;
+}
+
+.js-bg-anim-3 .video-wrapper {
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.video-wrapper:before {
   height: 100%;
   left: 0;
   position: absolute;
   top: 0;
   width: 100%;
   content: "";
-  z-index: 10;
+  z-index: 1;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
     linear-gradient(0deg, rgba(148, 0, 37, 0.05), rgba(148, 0, 37, 0.05));
-  animation: hero-video-overlay-anim 0.1s forwards 8s;
-} */
+  /* animation: hero-video-overlay-anim 0.1s forwards 8s; */
+  transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
 
-iframe {
-  overflow: hidden;
-  height: 56.25vw;
-  left: 50%;
-  min-height: 100vh;
-  min-width: 177.77vh;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 100vw;
+.js-bg-anim-3 .video-wrapper:before {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
 }
 
 .scrolldown-wrapper {
+  opacity: 0;
   z-index: 2;
   width: 100%;
   position: absolute;
   bottom: 0;
   transform: translateY(-100%);
-  animation: scroll-down-anim 1s forwards 0.1s;
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .scrolldown-img {
@@ -150,28 +141,59 @@ iframe {
   justify-content: center;
 }
 
+/*! SCROLLDOWN ANIM */
+.js-sd-anim-1 .scrolldown-wrapper {
+  transform: translateY(0);
+  opacity: 1;
+}
+
 .amp-wrapper {
   z-index: 2;
   width: 100%;
   position: absolute;
-  top: 100px;
+  top: 250px;
   opacity: 0;
   display: flex;
   justify-content: center;
-  animation: amp-anim 5.5s forwards 1s;
+  transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* ! AMP ANIMATION */
+.js-amp-anim-1 .amp-wrapper {
+  opacity: 1;
+  top: 100px;
+}
+
+.js-amp-anim-2 .amp-wrapper {
+  opacity: 0;
 }
 
 .title-wrapper {
   z-index: 2;
   width: 100%;
   position: absolute;
-  top: 280px;
+  top: 450px;
   opacity: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  animation: title-anim 6.2s forwards 2.6s;
+  transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* ! TITLE WRAPPER ANIMATION */
+
+.js-title-anim-1 .title-wrapper {
+  opacity: 1;
+  top: 350px;
+}
+
+.js-title-anim-2 .title-wrapper {
+  top: 100px;
+}
+
+.js-title-anim-3 .title-wrapper {
+  opacity: 0;
 }
 
 .title-wrapper:after {
@@ -182,7 +204,13 @@ iframe {
   color: #ffffff;
   background: #ffffff;
   content: "";
-  animation: title-after-anim 2s forwards 6.2s;
+  transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* !TITLE WRAPPER AFTER ANIMATION */
+
+.js-title-anim-2 .title-wrapper:after {
+  width: 90%;
 }
 
 .title-wrapper h1 {
@@ -194,12 +222,12 @@ iframe {
 .content-wrapper {
   z-index: 2;
   position: absolute;
-  top: 300px;
+  top: 600px;
   opacity: 0;
   width: 100%;
   display: flex;
   justify-content: center;
-  animation: content-anim 2.5s forwards 6s;
+  transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .content-wrapper .contents {
@@ -208,6 +236,16 @@ iframe {
   width: 1250px;
 }
 
+/* ! CONTENT ANIMATION */
+
+.js-content-anim-1 .content-wrapper {
+  opacity: 1;
+  top: 300px;
+}
+
+.js-content-anim-3 .content-wrapper {
+  opacity: 0;
+}
 .content-left {
   width: 30%;
 }
@@ -231,122 +269,4 @@ iframe {
   letter-spacing: -0.02em;
   line-height: 26px;
   margin-bottom: 0;
-}
-
-@keyframes content-anim {
-  0% {
-    opacity: 0;
-    top: 400px;
-  }
-  33%,
-  56% {
-    opacity: 1;
-    top: 300px;
-  }
-  66%,
-  90% {
-    opacity: 1;
-    top: 300px;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes title-after-anim {
-  100% {
-    width: 80%;
-  }
-}
-
-@keyframes title-anim {
-  0% {
-    opacity: 0;
-    top: 400px;
-  }
-  6%,
-  23% {
-    opacity: 1;
-    top: 350px;
-  }
-  33%,
-  56% {
-    opacity: 1;
-    top: 350px;
-  }
-  66%,
-  90% {
-    opacity: 1;
-    top: 100px;
-  }
-  100% {
-    top: 100px;
-    opacity: 0;
-  }
-}
-
-@keyframes amp-anim {
-  0% {
-    top: 200px;
-  }
-  12% {
-    opacity: 1;
-    top: 100px;
-  }
-  33%,
-  56% {
-    opacity: 1;
-    top: 100px;
-  }
-  66%,
-  90% {
-    opacity: 1;
-    top: 100px;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes scroll-down-anim {
-  100% {
-    transform: translateY(0);
-  }
-}
-
-@keyframes hero-video-anim {
-  0% {
-    top: 0;
-    opacity: 0;
-    left: 56px;
-    width: calc(100% - 112px);
-  }
-  5%,
-  56% {
-    opacity: 1;
-    top: 200px;
-    left: 56px;
-    width: calc(100% - 112px);
-  }
-
-  66%,
-  90% {
-    opacity: 1;
-    top: 80px;
-    left: 56px;
-    width: calc(100% - 112px);
-  }
-
-  100% {
-    opacity: 1;
-    top: 0;
-    left: 0;
-    width: 100%;
-  }
-}
-
-@keyframes hero-video-overlay-anim {
-  100% {
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
-  }
 }

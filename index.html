@@ -34,7 +34,7 @@
         </div>
       </div>
     </nav>
-    <div class="wrapper">
+    <div class="js-wrapper">
       <div class="amp-wrapper">
         <img src="./assets/ampersand-transition.svg" alt="amp-logo" />
       </div>
@@ -75,14 +75,7 @@
         ></iframe>
       </div>
     </div>
-    <div class="test">
-      <div>asdasdasdasdasdasdasd</div>
-      <div>asdasdasdasdasdasdasd</div>
-      <div>asdasdasdasdasdasdasd</div>
-      <div>asdasdasdasdasdasdasd</div>
-      <div>asdasdasdasdasdasdasd</div>
-      <div>asdasdasdasdasdasdasd</div>
-    </div>
+    <div class="test"></div>
   </body>
   <script>
     const element = document.querySelector(".main-nav");
@@ -94,18 +87,41 @@
 
     let currentScrollPosition = 0;
 
-    setTimeout(() => {
+    function animateLogo() {
       animFinish = true;
       logo.classList.add("animate-logo");
       if (currentScrollPosition === 0) {
         element.style.background = "transparent";
-        logoSvg.style = "fill:white";
       }
-    }, "8200");
+      logoSvg.style = "fill:white";
+    }
+
+    setTimeout(animateLogo, 5500);
+
+    function animateElem(wrapper, classes, duration) {
+      setTimeout(() => {
+        const elem = document.querySelector(wrapper);
+        elem.classList.add(classes);
+      }, duration);
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const wrapper = ".js-wrapper";
+      animateElem(wrapper, "js-sd-anim-1", 300);
+      animateElem(wrapper, "js-amp-anim-1", 1000);
+      animateElem(wrapper, "js-bg-anim-1", 1500);
+      animateElem(wrapper, "js-title-anim-1", 2200);
+      animateElem(wrapper, "js-bg-anim-2", 3500);
+      animateElem(wrapper, "js-amp-anim-2", 3700);
+      animateElem(wrapper, "js-title-anim-2", 3500);
+      animateElem(wrapper, "js-content-anim-1", 3500);
+      animateElem(wrapper, "js-bg-anim-3", 5500);
+      animateElem(wrapper, "js-title-anim-3", 5500);
+      animateElem(wrapper, "js-content-anim-3", 5500);
+    });
 
     window.addEventListener("scroll", function () {
       currentScrollPosition = window.pageYOffset;
-
       if (currentScrollPosition === 0 && animFinish) {
         element.style.background = "transparent";
         logoSvg.style = "fill:white";
