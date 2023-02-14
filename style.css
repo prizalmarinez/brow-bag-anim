@@ -4,7 +4,6 @@
 
 html,
 body {
-  background-color: rgb(182, 182, 249);
   margin: 0px;
   padding: 0px;
 }
@@ -118,7 +117,6 @@ iframe {
   z-index: 1;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
     linear-gradient(0deg, rgba(148, 0, 37, 0.05), rgba(148, 0, 37, 0.05));
-  /* animation: hero-video-overlay-anim 0.1s forwards 8s; */
   transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
@@ -182,7 +180,6 @@ iframe {
 }
 
 /* ! TITLE WRAPPER ANIMATION */
-
 .js-title-anim-1 .title-wrapper {
   opacity: 1;
   top: 350px;
@@ -208,7 +205,6 @@ iframe {
 }
 
 /* !TITLE WRAPPER AFTER ANIMATION */
-
 .js-title-anim-2 .title-wrapper:after {
   width: 90%;
 }
@@ -237,7 +233,6 @@ iframe {
 }
 
 /* ! CONTENT ANIMATION */
-
 .js-content-anim-1 .content-wrapper {
   opacity: 1;
   top: 300px;

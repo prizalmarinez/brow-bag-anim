@@ -96,8 +96,6 @@
       logoSvg.style = "fill:white";
     }
 
-    setTimeout(animateLogo, 5500);
-
     function animateElem(wrapper, classes, duration) {
       setTimeout(() => {
         const elem = document.querySelector(wrapper);
@@ -107,6 +105,7 @@
 
     document.addEventListener("DOMContentLoaded", function () {
       const wrapper = ".js-wrapper";
+      setTimeout(animateLogo, 5500);
       animateElem(wrapper, "js-sd-anim-1", 300);
       animateElem(wrapper, "js-amp-anim-1", 1000);
       animateElem(wrapper, "js-bg-anim-1", 1500);
