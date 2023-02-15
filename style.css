@@ -166,10 +166,6 @@ iframe {
   display: none;
 }
 
-/* .contact-us-btn .default-text {
-  display: block;
-} */
-
 .contact-us-btn::before {
   width: 50%;
   background-color: #1d1f20;
